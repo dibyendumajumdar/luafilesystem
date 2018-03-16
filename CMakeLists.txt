@@ -27,9 +27,10 @@ IF(MSVC)
   ADD_DEFINITIONS(-D_CRT_SECURE_NO_DEPRECATE=1)
 ENDIF(MSVC)
 
-add_library(lfs MODULE 
+add_library(lfs SHARED 
 	src/lfs.h 
 	src/lfs.c)
+set_target_properties(lfs PROPERTIES PREFIX "")
 target_link_libraries(lfs ${LUALIB})
 
 INSTALL(TARGETS lfs
